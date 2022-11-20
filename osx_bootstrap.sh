@@ -71,7 +71,7 @@ PACKAGES=(
     libjpeg                         libmemcached                    lynx
     markdown                        memcached                       mercurial
     postgresql                      pypy                            balena-cli
-    terminal-notifier               tmux    
+    terminal-notifier               tmux                            gh
     ansible                         jq                              node
     aom                             kubernetes-cli                  npth
     arm-linux-gnueabihf-binutils    lame                            nvm
