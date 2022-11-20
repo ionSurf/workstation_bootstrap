@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 # 
 # Bootstrap script for setting up a new OSX machine
 # 
@@ -7,7 +7,7 @@
 # Some apps don't have a cask and so still need to be installed by hand. These
 # include:
 #
-# - [Pla ce app here]
+# - [Place app here]
 #
 # Notes:
 #
@@ -50,13 +50,13 @@ fi
 brew update
 
 # Install GNU core utilities (those that come with OS X are outdated)
-brew tap homebrew/dupes
+#brew tap homebrew/dupes    // Deprecates
 brew install coreutils
-brew install gnu-sed --with-default-names
-brew install gnu-tar --with-default-names
-brew install gnu-indent --with-default-names
-brew install gnu-which --with-default-names
-brew install gnu-grep --with-default-names
+brew install gnu-sed
+brew install gnu-tar
+brew install gnu-indent
+brew install gnu-which
+#brew install gnu-grep  Not available
 
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 brew install findutils
@@ -75,7 +75,7 @@ PACKAGES=(
     ansible                         jq                              node
     aom                             kubernetes-cli                  npth
     arm-linux-gnueabihf-binutils    lame                            nvm
-    arm-none-eabi-gcc               leptonica                       oniguruma
+                   leptonica                       oniguruma
     assimp                          libarchive                      open-ocd
     autoconf                        libass                          opencore-amr
     automake                        libassuan                       openexr
@@ -101,7 +101,7 @@ PACKAGES=(
     dav1d                           libpthread-stubs                putty
     dbus                            librist                         pyenv
     dfu-util                        libsamplerate                   pyenv-virtualenv
-    diffstat                        libslirp                        pyenv-which-ext
+    diffstat                        libslirp                        
     docker-machine                  libsndfile                      pyqt
     doctl                           libsodium                       pyqt@5
     dos2unix                        libsoxr                         python@3.10
@@ -165,14 +165,14 @@ brew install ${PACKAGES[@]}
 echo "Cleaning up..."
 brew cleanup
 
-echo "Installing cask..."
-brew install homebrew/cask
+#echo "Installing cask..."
+#brew install homebrew/cask
 
 CASKS=(
-    anydesk                         android-sdk                     balena
-    bear
+    anydesk                         android-sdk                     
+    
     chromedriver
-    colluquy
+    
     daisydisk
     discord
     docker
@@ -185,7 +185,7 @@ CASKS=(
     gtkwave
     google-chrome
     google-drive
-    gpgtools
+    
     iterm2
     macvim
     messenger
@@ -214,13 +214,13 @@ echo "Installing cask apps..."
 brew install ${CASKS[@]} --cask
 
 echo "Installing fonts..."
-brew tap caskroom/fonts
+brew tap homebrew/cask-fonts
 FONTS=(
-    font-inconsolidata
+    font-inconsolata
     font-roboto
     font-clear-sans
 )
-brew cask install ${FONTS[@]}
+brew install ${FONTS[@]} --cask
 
 echo "Installing Python packages..."
 PYTHON_PACKAGES=(
